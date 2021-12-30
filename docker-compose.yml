@@ -1,0 +1,46 @@
+version: "3"
+services:
+  react-app:
+    image: react-app
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - r-social-net
+  api-server:
+    image: api-server
+    ports:
+      - "5001:5001"
+    networks:
+      - r-social-net
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO-INITDB_ROOT_USERNAME=admin
+      - MONGO-INITDB_ROOT_PASSWORD=password
+    networks:
+      - r-social-net
+    volumes:
+      - mongo-data:/data/db
+  mongo-express:
+    image: mongo-express:0.54.0
+    ports:
+      - "8081:8081"
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+    depends_on:
+      - mongo
+    networks:
+      - r-social-net
+networks:
+  r-social-net:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
