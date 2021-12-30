@@ -14,7 +14,7 @@ const APP_MODE = process.env.NODE_ENV;
 const DATABASE_URL =
   APP_MODE === "DEV"
     ? "mongodb://localhost:27017/r-social"
-    : DATABASE_URL || "mongodb://localhost:27017/r-social";
+    : process.env.DATABASE_URL || "mongodb://localhost:27017/r-social";
 
 mongoose
   .connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })

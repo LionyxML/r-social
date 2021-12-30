@@ -1,14 +1,19 @@
-FROM node:14-slim
+#build environment
+FROM node:14-slim as build
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm ci --silent
+RUN npm install react-scripts@5.0.0 -g --silent
+COPY . ./
+RUN npm run build
 
-WORKDIR /usr/src/app
+#production environment
+FROM nginx:stable-alpine
+COPY --from=build /app/build /usr/share/nginx/html
+COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY ./package.json ./
-COPY ./package-lock.json ./
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
 
-RUN yarn install
-
-COPY . .
-
-EXPOSE 3000
-
-CMD [ "npm", "start" ]

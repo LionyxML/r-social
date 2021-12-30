@@ -2,9 +2,8 @@ version: "3"
 services:
   react-app:
     image: react-app
-    stdin_open: true
     ports:
-      - "3000:3000"
+      - "3000:80"
     networks:
       - r-social-net
   api-server:
