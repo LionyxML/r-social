@@ -55,7 +55,7 @@ const Form = ({ currentId, setCurrentId }) => {
         onSubmit={handleSubmit}
       >
         <Typography variant="h6">
-          {currentId ? "Editing " : "Creating "}a Social Post
+          {currentId ? "Edit this " : "Create a "}Social Post
         </Typography>
         <TextField
           name="creator"
@@ -91,7 +91,9 @@ const Form = ({ currentId, setCurrentId }) => {
           label="Tags"
           fullWidth
           value={postData.tags}
-          onChange={(e) => setPostData({ ...postData, tags: e.target.value })}
+          onChange={(e) =>
+            setPostData({ ...postData, tags: e.target.value.split(",") })
+          }
         />
         <div className={classes.fileInput}>
           <FileBase
@@ -106,7 +108,6 @@ const Form = ({ currentId, setCurrentId }) => {
         <Button
           className={classes.buttonSubmit}
           variant="contained"
-          color="primary"
           size="large"
           type="submit"
           fullWidth
@@ -114,8 +115,8 @@ const Form = ({ currentId, setCurrentId }) => {
           Submit
         </Button>
         <Button
+          className={classes.buttonClear}
           variant="contained"
-          color="secondary"
           size="small"
           onClick={clear}
           fullWidth

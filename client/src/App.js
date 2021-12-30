@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { getPosts } from "./actions/posts";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
-import appLogo from "./images/r-social.png";
+// import appLogo from "./images/r-social.png";
 import useStyles from "./styles";
 
 const App = () => {
@@ -34,9 +34,10 @@ const App = () => {
         <Container>
           <Grid
             container
+            className={classes.mainContainer}
             justify="space-between"
             alignItems="stretch"
-            spaceing={3}
+            spacing={3}
           >
             <Grid item xs={12} sm={7}>
               <Posts currentId={currentId} setCurrentId={setCurrentId} />

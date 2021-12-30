@@ -3,16 +3,18 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import postRoutes from "./routes/posts.js";
+import dotenv from "dotenv";
+
+const app = express();
+dotenv.config();
+app.use(cors());
 
 const PORT = process.env.PORT || 5001;
 const APP_MODE = process.env.NODE_ENV;
 const DATABASE_URL =
   APP_MODE === "DEV"
     ? "mongodb://localhost:27017/r-social"
-    : "mongodb://mongo:27017/r-social";
-
-const app = express();
-app.use(cors());
+    : DATABASE_URL || "mongodb://localhost:27017/r-social";
 
 mongoose
   .connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
