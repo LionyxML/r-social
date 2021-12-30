@@ -12,6 +12,7 @@ const DATABASE_URL =
     : "mongodb://mongo:27017/r-social";
 
 const app = express();
+app.use(cors());
 
 mongoose
   .connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -20,10 +21,10 @@ mongoose
     console.error("r-social backend:: MongoDB connection error", e.message);
   });
 
-app.use("/posts", postRoutes);
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors());
+
+app.use("/posts", postRoutes);
 
 app.get("/", (req, res) => {
   res.send("This is a backend API for r-social.");
