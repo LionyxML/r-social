@@ -16,7 +16,7 @@ app.use(cors());
 
 mongoose
   .connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB is connected"))
+  .then(() => console.log("r-social backend:: MongoDB is connected"))
   .catch((e) => {
     console.error("r-social backend:: MongoDB connection error", e.message);
   });

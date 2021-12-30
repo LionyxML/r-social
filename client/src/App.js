@@ -22,12 +22,12 @@ const App = () => {
         <Typography className={classes.heading} variant="h2" align="center">
           r-social
         </Typography>
-        <img
+        {/* <img
           className={classes.image}
           src={appLogo}
           alt="r-social logo"
           height="60"
-        />
+        /> */}
       </AppBar>
       <Grow in>
         <Container>
