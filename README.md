@@ -20,3 +20,7 @@ Clone this repo, then from the root directory:
 Run `make build` to build the docker containers.
 Run `make run` to run the containers with docker-compose.
 Run `make stop` to stop the containers.
+
+# When developing
+
+Use `make run`, then stop the **react-app** and / or **api-server**, in order to run it locally with `npm start`.
