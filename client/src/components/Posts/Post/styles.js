@@ -49,4 +49,10 @@ export default makeStyles({
     display: "flex",
     justifyContent: "space-between",
   },
+  like: {
+    color: "#9D9C62",
+  },
+  delete: {
+    color: "#E4572E",
+  },
 });

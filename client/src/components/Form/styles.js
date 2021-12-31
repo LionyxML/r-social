@@ -29,4 +29,7 @@ export default makeStyles((theme) => ({
     backgroundColor: "#E4572E",
     color: "white",
   },
+  title: {
+    color: "#A8C686",
+  },
 }));

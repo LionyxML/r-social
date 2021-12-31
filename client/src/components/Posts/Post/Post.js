@@ -64,16 +64,16 @@ const Post = ({ post, setCurrentId }) => {
       <CardActions className={classes.cardActions}>
         <Button
           size="small"
-          color="primary"
           onClick={() => dispatch(likePost(post._id))}
+          className={classes.like}
         >
           <ThumbUpAltIcon fontSize="small" />
           Like ({post.likeCount})
         </Button>
         <Button
           size="small"
-          color="primary"
           onClick={() => dispatch(deletePost(post._id))}
+          className={classes.delete}
         >
           <DeleteIcon fontSize="small" />
           Delete
