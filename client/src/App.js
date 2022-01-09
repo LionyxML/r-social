@@ -5,12 +5,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Auth from "./components/Auth/Auth";
-
-const theme = createTheme();
+import defaultTheme from "./themes/default";
 
 const App = () => {
   return (
-    <MuiThemeProvider theme={theme}>
+    <MuiThemeProvider theme={defaultTheme}>
       <BrowserRouter>
         <Container maxWidth="lg">
           <Navbar />

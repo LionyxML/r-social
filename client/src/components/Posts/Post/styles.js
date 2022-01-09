@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export default makeStyles({
+export default makeStyles((theme) => ({
   media: {
     height: 0,
     paddingTop: "56.25%",
@@ -50,9 +50,9 @@ export default makeStyles({
     justifyContent: "space-between",
   },
   like: {
-    color: "#9D9C62",
+    color: theme.palette.primary.main,
   },
   delete: {
-    color: "#E4572E",
+    color: theme.palette.secondary.main,
   },
-});
+}));
