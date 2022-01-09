@@ -19,7 +19,7 @@ function Home() {
         <Grid
           container
           //   className={classes.mainContainer}
-          justify="space-between"
+          justifyContent="space-between"
           alignItems="stretch"
           spacing={3}
         >

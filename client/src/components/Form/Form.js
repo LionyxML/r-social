@@ -110,6 +110,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="contained"
           size="large"
           type="submit"
+          color="primary"
           fullWidth
         >
           Submit
@@ -119,6 +120,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="contained"
           size="small"
           onClick={clear}
+          color="secondary"
           fullWidth
         >
           Clear
