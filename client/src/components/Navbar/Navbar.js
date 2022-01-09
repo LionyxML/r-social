@@ -20,12 +20,12 @@ const Navbar = () => {
         >
           r-social
         </Typography>
-        <img
+        {/* <img
           className={classes.image}
           src={appLogo}
           alt="r-social logo"
           height="60"
-        />
+        /> */}
       </div>
       <Toolbar className={classes.toolbar}>
         {user ? (
