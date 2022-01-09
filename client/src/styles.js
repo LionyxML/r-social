@@ -9,10 +9,6 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
-  heading: {
-    fontFamily: "Nova Mono",
-    color: "#a8c686",
-  },
   image: {
     marginLeft: "15px",
   },
